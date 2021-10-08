@@ -8,7 +8,7 @@ package no.hvl.dat100.prosjekt.modell;
  * @see Kortfarge
  */
 public class Kort implements Comparable<Kort> {
-
+/*Test*/
 	private Kortfarge farge;
 	private int verdi;
 

@@ -17,15 +17,11 @@ public class KortSamling {
 	private Kort[] samling;
 	private int antall;
 
-	/**
-	 * Oppretter en tom Kortsamling med plass til MAKS_KORT (hele kortstokken).
-	 */
+
 	public KortSamling() {
+		//lager en tom kortsamling med plass til MAKS_KORT
+		samling = new Kort[MAKS_KORT];
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.constructor("KortSamling"));
-		// TODO - END
 	}
 
 	/**
@@ -91,12 +87,14 @@ public class KortSamling {
 	 * slik at de normalt må stokkes før bruk.
 	 */
 	public void leggTilAlle() {
-		
-		// TODO - START
-		// Husk: bruk Regler.MAKS_KORT_FARGE for å få antall kort per farge
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		// Husk: bruk Regler.MAKS_KORT_FARGE for aa faa antall kort per farge
+		int teller = 0;
+		for (Kortfarge f: Kortfarge.values()) {
+			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
+				samling[teller] = new Kort(f, i);
+				teller++;
+			}
+		}
 	}
 
 	/**

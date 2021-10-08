@@ -88,11 +88,10 @@ public class KortSamling {
 	 */
 	public void leggTilAlle() {
 		// Husk: bruk Regler.MAKS_KORT_FARGE for aa faa antall kort per farge
-		int teller = 0;
+		KortSamling samling = new KortSamling();
 		for (Kortfarge f: Kortfarge.values()) {
 			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
-				samling[teller] = new Kort(f, i);
-				teller++;
+				samling.leggTil(f, i);
 			}
 		}
 	}
@@ -102,10 +101,14 @@ public class KortSamling {
 	 */
 	public void fjernAlle() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		KortSamling samling = new KortSamling();
+		for(Kortfarge f: Kortfarge.values()) {
+			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
+				if(samling.har(f,i)) {
+					samling.fjern(f,i);
+				}
+			}
+		}
 	}
 	
 	/**
@@ -183,12 +186,11 @@ public class KortSamling {
 	 */
 	public Kort[] getAllekort() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
-	
+		Kort[] alleKort = new Kort[samling.length];
+		for (int i = 0; i <= alleKort.length; i++) {
+			alleKort[i] = samling[i];
+		}
+		return alleKort;
 	}
 	
 }

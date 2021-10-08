@@ -24,7 +24,7 @@ public class Kort implements Comparable<Kort> {
 		this.farge = farge;
 		this.verdi = verdi;
 	}
-
+// kommentar blablabla
 	/**
 	 * Gir fargen på kortet.
 	 * 

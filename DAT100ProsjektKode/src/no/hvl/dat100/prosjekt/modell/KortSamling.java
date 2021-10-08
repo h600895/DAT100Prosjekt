@@ -25,10 +25,10 @@ public class KortSamling {
 	}
 
 	/**
-	 * Returnerer en tabell med kortene i samlinga. Tabellen trenger ikke være
-	 * full. Kortene ligger sammenhengende fra starten av tabellen. Kan få
-	 * tilgang til antallet ved å bruke metoden getAntallKort(). Metoden er
-	 * først og fremst ment å brukes i testklasser. Om man trenger
+	 * Returnerer en tabell med kortene i samlinga. Tabellen trenger ikke vare
+	 * full. Kortene ligger sammenhengende fra starten av tabellen. Kan fa
+	 * tilgang til antallet ved a bruke metoden getAntallKort(). Metoden er
+	 * forst og fremst ment a brukes i testklasser. Om man trenger
 	 * kortene utenfor, anbefales metoden getAlleKort().
 	 * 
 	 * @return tabell av kort.
@@ -73,10 +73,14 @@ public class KortSamling {
 	 * @param kort
 	 *            er kortet som skal leggast til.
 	 */
-	public void leggTil(Kort kort) {
+	public void leggTil(Kort kort) { //legg til kort i bunken p� bordet, fra samling
 		
 		// TODO - START
-		
+		for(int i=0; i < samling.length; i++) {
+			if(samling[i] == null) {
+				samling[i] = kort;
+			}
+		}
 		throw new UnsupportedOperationException(TODO.method());
 		// TODO - END
 		
@@ -143,7 +147,7 @@ public class KortSamling {
 	}
 	
 	/**
-	 * Undersøker om et kort finst i samlinga.
+	 * Undersoker om et kort finst i samlinga.
 	 * 
 	 * @param kort.
 	 * 
@@ -151,7 +155,12 @@ public class KortSamling {
 	 */
 	public boolean har(Kort kort) {
 		
-		// TODO - START
+		for(int i = 0; i < samling.length; i++) {
+			if(samling[i] == kort) {
+				return true;
+			}
+		}
+		return false;
 		
 		throw new UnsupportedOperationException(TODO.method());
 		// return false;
@@ -160,7 +169,7 @@ public class KortSamling {
 	}
 
 	/**
-	 * Fjernar et kort frå samlinga. Dersom kortet ikke finnest i samlinga,
+	 * Fjernar et kort fra samlinga. Dersom kortet ikke finnest i samlinga,
 	 * skjer ingenting med samilingen
 	 * 
 	 * @param kort
@@ -171,7 +180,13 @@ public class KortSamling {
 			 
 	public boolean fjern(Kort kort) {
 		
-		// TODO - START
+		for(int i = 0; i < samling.length; i++) {
+			if(samling[i] == kort) {
+				samling[i] = null;
+				return true;
+			}
+			return false;
+		}
 		
 		throw new UnsupportedOperationException(TODO.method());
 

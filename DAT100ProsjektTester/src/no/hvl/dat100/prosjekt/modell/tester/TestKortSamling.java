@@ -12,7 +12,9 @@ import org.junit.rules.TestRule;
 import org.junit.rules.Timeout;
 
 import no.hvl.dat100.prosjekt.kontroll.dommer.Regler;
-import no.hvl.dat100.prosjekt.modell.*;
+import no.hvl.dat100.prosjekt.modell.Kort;
+import no.hvl.dat100.prosjekt.modell.KortSamling;
+import no.hvl.dat100.prosjekt.modell.Kortfarge;
 
 public class TestKortSamling {
 

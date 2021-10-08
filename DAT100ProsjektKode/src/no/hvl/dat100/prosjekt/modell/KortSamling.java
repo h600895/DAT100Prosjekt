@@ -4,10 +4,10 @@ import no.hvl.dat100.prosjekt.TODO;
 import no.hvl.dat100.prosjekt.kontroll.dommer.Regler;
 
 /**
- * Struktur for å lagre ei samling kort. Kan lagre hele kortstokken. Det finnes
- * en konstant i klassen Regler som angir antall kort i hver av de 4 fargene. Når
+ * Struktur for aa lagre ei samling kort. Kan lagre hele kortstokken. Det finnes
+ * en konstant i klassen Regler som angir antall kort i hver av de 4 fargene. Naar
  * programmet er ferdig settes denne til 13, men under utvikling / testing kan
- * det være praktisk å ha denne mindre.
+ * det vaere praktisk aa ha denne mindre.
  * 
  */
 public class KortSamling {
@@ -80,37 +80,29 @@ public class KortSamling {
 			if(samling[i] == null) {
 				samling[i] = kort;
 			}
-		}
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
-		
+		}	
 	}
 	
-	/**
-	 * Legger alle korta (hele kortstokken) til samlinga. Korta vil være sortert
-	 * slik at de normalt må stokkes før bruk.
-	 */
 	public void leggTilAlle() {
-		// Husk: bruk Regler.MAKS_KORT_FARGE for aa faa antall kort per farge
-		KortSamling samling = new KortSamling();
+		int teller = 0;
 		for (Kortfarge f: Kortfarge.values()) {
 			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
-				samling.leggTil(f, i);
+				samling[teller] = new Kort(f,i); //lager et nytt kort p� posisjonen til telleren med farge og verdi fra for-loopen
+				teller++; //har en egen teller slik at kortene ikke skrives over nar det kommer en ny farge
 			}
 		}
 	}
 
-	/**
-	 * Fjerner alle korta fra samlinga slik at den blir tom.
-	 */
 	public void fjernAlle() {
-		
-		KortSamling samling = new KortSamling();
+		//fjerner alle kort fra samlingen
+		int teller = 0;
 		for(Kortfarge f: Kortfarge.values()) {
 			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
-				if(samling.har(f,i)) {
-					samling.fjern(f,i);
+				if(samling[teller] != null) {
+					samling[teller] = null;
+					//sjekker om posisjonen til telleren har innhold, hvis ja settes denne til null
 				}
+				teller++;
 			}
 		}
 	}
@@ -161,11 +153,6 @@ public class KortSamling {
 			}
 		}
 		return false;
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// return false;
-		// TODO - END
-		
 	}
 
 	/**
@@ -185,12 +172,8 @@ public class KortSamling {
 				samling[i] = null;
 				return true;
 			}
-			return false;
 		}
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return false;
 	}
 
 	/**
@@ -200,8 +183,8 @@ public class KortSamling {
 	 *         som i kortsamlinga.
 	 */
 	public Kort[] getAllekort() {
-		
-		Kort[] alleKort = new Kort[samling.length];
+		//ma hente antall kort og lage en tabell med lengde av dette
+		Kort[] alleKort = new Kort[getAntalKort()];
 		for (int i = 0; i <= alleKort.length; i++) {
 			alleKort[i] = samling[i];
 		}

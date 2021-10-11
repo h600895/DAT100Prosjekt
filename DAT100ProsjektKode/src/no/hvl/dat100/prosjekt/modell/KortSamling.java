@@ -46,11 +46,13 @@ public class KortSamling {
 	 */
 	public int getAntalKort() {
 		
-		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
+		for(int i = 0; i<samling.length; i++) {
+			if (samling[i] == null) {
+				return i;
+			}
+		}
+		return samling.length;
 	}
 	
 	/**

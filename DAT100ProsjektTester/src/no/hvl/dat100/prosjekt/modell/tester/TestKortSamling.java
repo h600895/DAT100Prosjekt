@@ -41,14 +41,15 @@ public class TestKortSamling {
 	public void TestConstructor() {
 
 		KortSamling samling = new KortSamling();
-				
+		
 		Kort[] samlingen = samling.getSamling();
-				
+		
 		assertNotNull(samlingen);
 		
 		assertEquals(4 * Regler.MAKS_KORT_FARGE, samlingen.length);
 		
 		assertEquals(0, samling.getAntalKort());
+		
 
 	}
 	

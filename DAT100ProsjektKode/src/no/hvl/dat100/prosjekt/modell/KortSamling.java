@@ -174,6 +174,7 @@ public class KortSamling {
 	public boolean fjern(Kort kort) {
 		
 		for(int i = 0; i < samling.length; i++) {
+			
 			if(samling[i] == kort) {
 				samling[i] = null;
 				return true;

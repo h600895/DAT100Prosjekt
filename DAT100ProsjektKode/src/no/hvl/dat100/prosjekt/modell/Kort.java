@@ -155,6 +155,7 @@ public class Kort implements Comparable<Kort> {
 			return this.farge.ordinal() - kort.farge.ordinal();
 		} else {
 			return this.verdi - kort.verdi;
+			
 		}
 		
 	}

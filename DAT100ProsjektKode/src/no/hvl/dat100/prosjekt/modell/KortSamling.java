@@ -62,11 +62,12 @@ public class KortSamling {
 	 */
 	public boolean erTom() {
 		
-		// TODO - START
-				
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
+		for(Kort i: samling) {
+			if (i != null) {
+				return false;
+			}
+		}
+		return true;
 	}
 
 	/**
@@ -116,13 +117,15 @@ public class KortSamling {
 	 *         null.
 	 */
 	public Kort seSiste() {
-		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
-		
+		if (!erTom()) {
+			for(int i = 0; i<samling.length; i++) {
+				Kort forige = samling[i];
+				if(samling[i] == null) {
+					return samling[i-1];
+				}
+			}
+		}
+		return samling[samling.length-1];
 	}
 
 	/**
@@ -133,11 +136,12 @@ public class KortSamling {
 	 */
 	public Kort taSiste() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		
-		// TODO - END
+		/*Kort kortet = seSiste();
+		fjern(kortet);
+		return kortet;*/
+		Kort kortet = seSiste();
+		fjern(kortet);
+		return kortet;
 	}
 	
 	/**

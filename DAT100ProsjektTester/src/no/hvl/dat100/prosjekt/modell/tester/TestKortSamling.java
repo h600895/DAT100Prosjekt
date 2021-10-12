@@ -12,9 +12,7 @@ import org.junit.rules.TestRule;
 import org.junit.rules.Timeout;
 
 import no.hvl.dat100.prosjekt.kontroll.dommer.Regler;
-import no.hvl.dat100.prosjekt.modell.Kort;
-import no.hvl.dat100.prosjekt.modell.KortSamling;
-import no.hvl.dat100.prosjekt.modell.Kortfarge;
+import no.hvl.dat100.prosjekt.modell.*;
 
 public class TestKortSamling {
 
@@ -41,15 +39,14 @@ public class TestKortSamling {
 	public void TestConstructor() {
 
 		KortSamling samling = new KortSamling();
-		
+				
 		Kort[] samlingen = samling.getSamling();
-		
+				
 		assertNotNull(samlingen);
 		
 		assertEquals(4 * Regler.MAKS_KORT_FARGE, samlingen.length);
 		
 		assertEquals(0, samling.getAntalKort());
-		
 
 	}
 	
@@ -92,6 +89,7 @@ public class TestKortSamling {
 		samling.leggTilAlle();
 		
 		assertEquals(4 * Regler.MAKS_KORT_FARGE,samling.getAntalKort());
+		
 		for (Kortfarge f : Kortfarge.values()) {
 			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
 				assertTrue(samling.har(new Kort(f, i)));
@@ -122,7 +120,7 @@ public class TestKortSamling {
 		
 		setUp();
 		
-		//assertEquals(kort2, samling.seSiste());
+		assertEquals(kort2, samling.seSiste());
 		
 		assertEquals(3, samling.getAntalKort());
 		
@@ -132,20 +130,17 @@ public class TestKortSamling {
 	public void TesttaSiste() {
 			
 		setUp();
-//		System.out.println("Testen, kort2: " + kort2);
-//		System.out.println("Testen taSiste: " + samling.taSiste());
+		
 		assertEquals(kort2, samling.taSiste());
 		assertEquals(2, samling.getAntalKort());
 		
-		
-		
-		/*assertEquals(kort3, samling.taSiste());
+		assertEquals(kort3, samling.taSiste());
 		assertEquals(1, samling.getAntalKort());
 		
 		assertEquals(kort1, samling.taSiste());
 		assertEquals(0, samling.getAntalKort());
 		
-		assertNull(samling.taSiste());*/
+		assertNull(samling.taSiste());
 		
 	}
 

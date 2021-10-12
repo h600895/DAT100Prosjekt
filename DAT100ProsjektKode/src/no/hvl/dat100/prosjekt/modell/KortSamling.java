@@ -68,32 +68,38 @@ public class KortSamling {
 	 */
 	public void leggTil(Kort kort) { // legg til kort i bunken på bordet, fra samling
 		samling[antall] = kort;
-		antall += 1;
+		antall++;
 	}
 
 	public void leggTilAlle() {
+		
+		
+		
 		int teller = 0;
 		antall = 0;
 		for (Kortfarge f : Kortfarge.values()) {
 			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
-				samling[teller] = new Kort(f, i); // lager et nytt kort på posisjonen til telleren med farge og verdi
-													// fra for-loopen
-				teller++; // har en egen teller slik at kortene ikke skrives over nar det kommer en ny
-							// farge
+				samling[teller] = new Kort(f, i);						
+				teller++;
 				antall++;
 			}
 		}
+		skrivUtAlle();
 	}
 
 	public void fjernAlle() {
+		
 		samling = new Kort[MAKS_KORT];
 		antall = 0;
+
 	}
 
 	public void skrivUtAlle() {
+		System.out.println("-----------");
 		for (int i = 0; i < antall; i++) {
-			System.out.println(samling[i]);
+			System.out.println(i + ": " + samling[i]);
 		}
+		System.out.println("-----------");
 	}
 
 	/**
@@ -103,7 +109,11 @@ public class KortSamling {
 	 *         er tom, returneres null.
 	 */
 	public Kort seSiste() {
-		return samling[antall];
+
+		if (antall == 0) {
+			return null;
+		}
+		return samling[antall-1];
 	}
 
 	/**
@@ -113,9 +123,12 @@ public class KortSamling {
 	 */
 	public Kort taSiste() {
 		
+		Kort kort = seSiste();
+		fjern(kort);
+		return kort;
 		
 		
-		for(int i=0; i<samling.length; i++) {
+		/*for(int i=0; i<samling.length; i++) {
 			System.out.println(samling[i]);
 		}
 		System.out.println("----------");
@@ -125,7 +138,7 @@ public class KortSamling {
 		samling[antall] = null;
 		antall--;
 		System.out.println("Kortet:" + kortet);
-		return kortet;
+		return kortet;*/
 		
 		
 		
@@ -153,7 +166,8 @@ public class KortSamling {
 	public boolean har(Kort kort) {
 
 		for (int i = 0; i < samling.length; i++) {
-			if (samling[i] == kort) {
+			System.out.println(samling[i]);
+			if (samling[i] == kort && kort != null) {
 				return true;
 			}
 		}
@@ -172,8 +186,9 @@ public class KortSamling {
 	public boolean fjern(Kort kort) {
 
 		for (int i = 0; i < samling.length; i++) {
-			if (samling[i] == kort) {
+			if (samling[i] == kort && kort != null) {
 				samling[i] = null;
+				antall--;
 				return true;
 			}
 		}

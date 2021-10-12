@@ -82,7 +82,6 @@ public class KortSamling {
 				antall++;
 			}
 		}
-		//skrivUtAlle();
 	}
 
 	public void fjernAlle() {

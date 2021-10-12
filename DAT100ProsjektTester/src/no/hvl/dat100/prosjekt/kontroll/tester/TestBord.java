@@ -123,6 +123,8 @@ class TestBord {
 		Kort k2 = bord.seOversteBunkeTil();
 		
 		assertEquals(k1,k2);
+		System.out.println(antallbunke);
+		System.out.println(bord.antallBunkeTil());
 		assertEquals(antallbunke, bord.antallBunkeTil());
 	}
 	

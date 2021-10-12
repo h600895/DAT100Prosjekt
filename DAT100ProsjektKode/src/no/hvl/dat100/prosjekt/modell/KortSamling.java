@@ -73,8 +73,6 @@ public class KortSamling {
 
 	public void leggTilAlle() {
 		
-		
-		
 		int teller = 0;
 		antall = 0;
 		for (Kortfarge f : Kortfarge.values()) {
@@ -84,7 +82,7 @@ public class KortSamling {
 				antall++;
 			}
 		}
-		skrivUtAlle();
+		//skrivUtAlle();
 	}
 
 	public void fjernAlle() {
@@ -126,34 +124,6 @@ public class KortSamling {
 		Kort kort = seSiste();
 		fjern(kort);
 		return kort;
-		
-		
-		/*for(int i=0; i<samling.length; i++) {
-			System.out.println(samling[i]);
-		}
-		System.out.println("----------");
-		
-		Kort kortet = samling[antall];
-		System.out.println("Kortet:" + kortet);
-		samling[antall] = null;
-		antall--;
-		System.out.println("Kortet:" + kortet);
-		return kortet;*/
-		
-		
-		
-//		//skrivUtAlle();
-//		for(Kort kort: alleKort) {
-//			System.out.println("1: " + kort);
-//		}
-//		Kort kortet = seSiste();
-//		samling[antall] = null;
-//		antall--;
-//		for(Kort kort: samling) {
-//			System.out.println("1: " + kort);
-//		}
-		
-		//return kortet;
 	}
 
 	/**
@@ -166,7 +136,6 @@ public class KortSamling {
 	public boolean har(Kort kort) {
 
 		for (int i = 0; i < samling.length; i++) {
-			System.out.println(samling[i]);
 			if (samling[i] == kort && kort != null) {
 				return true;
 			}

@@ -21,7 +21,7 @@ public class KortSamling {
 	public KortSamling() {
 		//lager en tom kortsamling med plass til MAKS_KORT
 		samling = new Kort[MAKS_KORT];
-		
+		antall = 0;
 	}
 
 	/**
@@ -45,14 +45,8 @@ public class KortSamling {
 	 * @return antall kort i samlinga.
 	 */
 	public int getAntalKort() {
-		
-		
-		for(int i = 0; i<samling.length; i++) {
-			if (samling[i] == null) {
-				return i;
-			}
-		}
-		return samling.length;
+
+		return antall;
 	}
 	
 	/**
@@ -62,12 +56,10 @@ public class KortSamling {
 	 */
 	public boolean erTom() {
 		
-		for(Kort i: samling) {
-			if (i != null) {
-				return false;
-			}
+		if (antall == 0) {
+			return true;
 		}
-		return true;
+		return false;
 	}
 
 	/**
@@ -77,37 +69,28 @@ public class KortSamling {
 	 *            er kortet som skal leggast til.
 	 */
 	public void leggTil(Kort kort) { //legg til kort i bunken på bordet, fra samling
-		
-		// TODO - START
-		for(int i=0; i < samling.length; i++) {
-			if(samling[i] == null) {
-				samling[i] = kort;
-			}
-		}	
+		samling[antall] = kort;
+		antall += 1;
 	}
 	
 	public void leggTilAlle() {
 		int teller = 0;
+		antall = 0;
 		for (Kortfarge f: Kortfarge.values()) {
 			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
 				samling[teller] = new Kort(f,i); //lager et nytt kort på posisjonen til telleren med farge og verdi fra for-loopen
 				teller++; //har en egen teller slik at kortene ikke skrives over nar det kommer en ny farge
+				antall++;
 			}
+		}		
+		for (Kort kort: samling) {
+			System.out.println(kort);
 		}
 	}
 
 	public void fjernAlle() {
-		//fjerner alle kort fra samlingen
-		int teller = 0;
-		for(Kortfarge f: Kortfarge.values()) {
-			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
-				if(samling[teller] != null) {
-					samling[teller] = null;
-					//sjekker om posisjonen til telleren har innhold, hvis ja settes denne til null
-				}
-				teller++;
-			}
-		}
+		samling = new Kort[MAKS_KORT];
+		antall = 0;
 	}
 	
 	/**
@@ -117,15 +100,7 @@ public class KortSamling {
 	 *         null.
 	 */
 	public Kort seSiste() {
-		if (!erTom()) {
-			for(int i = 0; i<samling.length; i++) {
-				Kort forige = samling[i];
-				if(samling[i] == null) {
-					return samling[i-1];
-				}
-			}
-		}
-		return samling[samling.length-1];
+		return samling[antall];
 	}
 
 	/**
@@ -136,11 +111,8 @@ public class KortSamling {
 	 */
 	public Kort taSiste() {
 		
-		/*Kort kortet = seSiste();
-		fjern(kortet);
-		return kortet;*/
 		Kort kortet = seSiste();
-		fjern(kortet);
+		antall -= 1;
 		return kortet;
 	}
 	
@@ -191,9 +163,14 @@ public class KortSamling {
 	public Kort[] getAllekort() {
 		//ma hente antall kort og lage en tabell med lengde av dette
 		Kort[] alleKort = new Kort[getAntalKort()];
+		
+		for (Kort kort: samling) {
+			System.out.println(kort);
+		}
 		for (int i = 0; i <= alleKort.length; i++) {
 			alleKort[i] = samling[i];
 		}
+
 		return alleKort;
 	}
 	

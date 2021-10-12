@@ -60,13 +60,36 @@ public class KortUtils {
 	 * 			samling av kort som skal stokkes. 
 	 */
 	public static void stokk(KortSamling samling) {
+		
+		Kort[] ikkeStokket = samling.getAllekort();
+		samling.fjernAlle();
+		Random rand = new Random();
+		
+		for (int i = 0; i < ikkeStokket.length; i++) {
+			int randomIndexToSwap = rand.nextInt(ikkeStokket.length);
+			Kort temp = ikkeStokket[randomIndexToSwap];
+			ikkeStokket[randomIndexToSwap] = ikkeStokket[i];
+			ikkeStokket[i] = temp;
+		}
+		
+		for(Kort kort: ikkeStokket) {
+			samling.leggTil(kort);
+		}
+		
+		
+		
+		
+		
+	}
+		
+		
 	
-		KortSamling [] stokket = new KortSamling[samling.getAllekort()];
+		/*KortSamling [] stokket = new KortSamling[samling.getAllekort()];
 		//int tall= (int)(random()*samling.getAntalKort);
 
-		    private Random rand = new Random();
+		    Random rand = new Random();
 
-		    public int getRandArrayElement(){
+		    int getRandArrayElement(){
 		        return stokket[rand.nextInt(stokket.length)];
 		        
 		    }
@@ -74,7 +97,7 @@ public class KortUtils {
 		
 		
 
-		
+		*/
 	}
 	
 

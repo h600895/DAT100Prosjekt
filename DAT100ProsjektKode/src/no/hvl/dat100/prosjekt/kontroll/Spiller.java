@@ -33,10 +33,9 @@ public abstract class Spiller implements ISpiller {
 	 */
 	public Spiller() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.constructor("Spiller"));
-		// TODO - END
+		antalltrekk = 0;
+		hand = new KortSamling();
+		spiller = Spillere.INGEN;
 	}
 
 	/**
@@ -56,90 +55,60 @@ public abstract class Spiller implements ISpiller {
 
 	public int getAntallKort() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return hand.getAntalKort();
 	}
 
 	public KortSamling getHand() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return hand;
 	}
 
 	public int getAntallTrekk() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return antalltrekk;
 	}
 
 	public Spillere hvem() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return spiller;
 		
 	}
 
 	public void setAntallTrekk(int t) {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		antalltrekk = t;
 	}
 
 	public boolean erFerdig() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
-		
+		if (hand.getAntalKort() == 0) {
+			return true;
+		}
+		return false;
+ 		
 	}
 
 	public void leggTilKort(Kort kort) {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		hand.leggTil(kort);
 		
 	}
 
 	public void fjernKort(Kort kort) {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		hand.fjern(kort);
 		
 	}
 
 	public void fjernAlleKort() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		hand.fjernAlle();
 	}
 
 	public void trekker(Kort kort) {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
+		hand.leggTil(kort);
+		antalltrekk++;
 		
 	}
 }

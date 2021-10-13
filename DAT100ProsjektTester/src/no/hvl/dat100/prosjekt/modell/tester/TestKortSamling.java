@@ -12,9 +12,7 @@ import org.junit.rules.TestRule;
 import org.junit.rules.Timeout;
 
 import no.hvl.dat100.prosjekt.kontroll.dommer.Regler;
-import no.hvl.dat100.prosjekt.modell.Kort;
-import no.hvl.dat100.prosjekt.modell.KortSamling;
-import no.hvl.dat100.prosjekt.modell.Kortfarge;
+import no.hvl.dat100.prosjekt.modell.*;
 
 public class TestKortSamling {
 
@@ -41,15 +39,14 @@ public class TestKortSamling {
 	public void TestConstructor() {
 
 		KortSamling samling = new KortSamling();
-		
+				
 		Kort[] samlingen = samling.getSamling();
-		
+				
 		assertNotNull(samlingen);
 		
 		assertEquals(4 * Regler.MAKS_KORT_FARGE, samlingen.length);
 		
 		assertEquals(0, samling.getAntalKort());
-		
 
 	}
 	
@@ -92,10 +89,11 @@ public class TestKortSamling {
 		samling.leggTilAlle();
 		
 		assertEquals(4 * Regler.MAKS_KORT_FARGE,samling.getAntalKort());
-		System.out.println(samling.getAntalKort());
+		
 		for (Kortfarge f : Kortfarge.values()) {
 			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
 				assertTrue(samling.har(new Kort(f, i)));
+
 			}
 		}
 	}
@@ -123,8 +121,7 @@ public class TestKortSamling {
 		
 		setUp();
 		
-		//assertEquals(kort2, samling.seSiste());
-		System.out.println(samling.seSiste());
+		assertEquals(kort2, samling.seSiste());
 		
 		assertEquals(3, samling.getAntalKort());
 		

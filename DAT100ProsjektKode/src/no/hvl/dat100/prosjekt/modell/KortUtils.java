@@ -17,20 +17,41 @@ public class KortUtils {
 	
 	public static void sorter(KortSamling samling) {
 		
-		KortSamling [] sortert = new KortSamling [samling.getAntalKort()];
-			for(int kortNr=1; kortNr<samling.getAntalKort(); kortNr++) {
+		Kort[] sortert = samling.getAllekort();
+		Kort[] erSortert = sortert;
+		
+//		for(int i = 0; i < sortert.length; i++) {
+//			System.out.println(sortert[i]);
+//		}
+		
+		
+		for(int kortNr=1; kortNr < samling.getAntalKort(); kortNr++) {
 			int svar=sortert[kortNr].compareTo(sortert[kortNr-1]);
-			kort temp= sortert[kortNr];
-			if (svar==1) {
+			//System.out.println(svar);
+			
+			
+			if (svar < 0) {
+				 Kort temp = sortert[kortNr];
 				 sortert[kortNr]=sortert[kortNr-1];
 				 sortert[kortNr-1]= temp;
-			 }
-					
-					
-			//compareTo gir int, 0 hvis lik, -1 hvis mindre og 1 hvis større	
+				 kortNr = 1;
+			 	}
+			
+		
+						
+				//compareTo gir int, 0 hvis lik, -1 hvis mindre og 1 hvis større	
+			}
+		for(int i = 0; i < sortert.length; i++) {
+			System.out.println(sortert[i]);
+		}
+		samling.fjernAlle();
+		for(Kort kort : sortert) {
+			samling.leggTil(kort);
+		}
+		
+		//Fjern alle og legg til den nye kortstokken heller
 			}
 		
-	}
 	
 	/**
 	 * Stokkar en kortsamling. 
@@ -39,13 +60,36 @@ public class KortUtils {
 	 * 			samling av kort som skal stokkes. 
 	 */
 	public static void stokk(KortSamling samling) {
+		
+		Kort[] ikkeStokket = samling.getAllekort();
+		samling.fjernAlle();
+		Random rand = new Random();
+		
+		for (int i = 0; i < ikkeStokket.length; i++) {
+			int randomIndexToSwap = rand.nextInt(ikkeStokket.length);
+			Kort temp = ikkeStokket[randomIndexToSwap];
+			ikkeStokket[randomIndexToSwap] = ikkeStokket[i];
+			ikkeStokket[i] = temp;
+		}
+		
+		for(Kort kort: ikkeStokket) {
+			samling.leggTil(kort);
+		}
+		
+		
+		
+		
+		
+	}
+		
+		
 	
-		KortSamling [] stokket = new KortSamling[samling.getAllekort()];
+		/*KortSamling [] stokket = new KortSamling[samling.getAllekort()];
 		//int tall= (int)(random()*samling.getAntalKort);
 
-		    private Random rand = new Random();
+		    Random rand = new Random();
 
-		    public int getRandArrayElement(){
+		    int getRandArrayElement(){
 		        return stokket[rand.nextInt(stokket.length)];
 		        
 		    }
@@ -53,7 +97,7 @@ public class KortUtils {
 		
 		
 
-		
+		*/
 	}
 	
 

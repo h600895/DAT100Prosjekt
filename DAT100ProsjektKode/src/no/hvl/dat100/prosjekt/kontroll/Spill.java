@@ -28,10 +28,11 @@ public class Spill {
 	
 	public Spill() {
 		
-		// TODO - START
+		bord = new Bord();
+		nord = new SydSpiller(Spillere.NORD);
+		syd = new SydSpiller(Spillere.SYD);
 		
-		throw new UnsupportedOperationException(TODO.constructor("Spill"));
-		// TODO - END
+		
 		
 	}
 	
@@ -42,11 +43,7 @@ public class Spill {
 	 */
 	public Bord getBord() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return bord;
 		
 	}
 	
@@ -57,11 +54,7 @@ public class Spill {
 	 */
 	public ISpiller getSyd() {
 		
-		// TODO - START
-		
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return syd;
 		
 	}
 
@@ -72,11 +65,7 @@ public class Spill {
 	 */
 	public ISpiller getNord() {
 		
-		// TODO - START
-
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		return nord;
 	}
 
 	/**
@@ -90,10 +79,15 @@ public class Spill {
 	 */
 	public void start() {
 		
-		// TODO - START
+		//Opprett 2 spillere
+		//Oppretter 2 bunker (bord)
+		//Legg til alle kort til fra bunken
+		//Stokk bunken
+		//del ut fra fra til nord og syd 3 hver
+		//Legg første kort til til bunken
+		nord = new Spiller(Spillere.NORD);
+		syd = new Spiller(Spillere.SYD);
 		
-		throw new UnsupportedOperationException(TODO.method());
-		// TODO - END
 	}
 
 	/**
@@ -120,11 +114,11 @@ public class Spill {
 	 */
 	public Kort trekkFraBunke(ISpiller spiller) {
 
-		// TODO - START
-			
-		throw new UnsupportedOperationException(TODO.method());
-
-		// TODO - END
+		if (bord.bunkefraTom()) {
+			bord.snuTilBunken();
+		}
+		return bord.taOversteFraBunke();
+		
 	}
 
 	/**

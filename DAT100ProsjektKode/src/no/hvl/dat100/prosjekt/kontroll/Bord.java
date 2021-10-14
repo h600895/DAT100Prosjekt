@@ -121,7 +121,7 @@ public class Bord {
 	 */
 	public Kort seOversteBunkeTil() {
 		
-		return bunkeTil.taSiste();
+		return bunkeTil.seSiste();
 	}
 	
 	/**

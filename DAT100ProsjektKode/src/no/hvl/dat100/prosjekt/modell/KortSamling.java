@@ -135,9 +135,14 @@ public class KortSamling {
 	public boolean har(Kort kort) {
 
 		for (int i = 0; i < samling.length; i++) {
-			if (samling[i] == kort && kort != null) {
+			
+			if (kort == null) {
+				return false;
+			}
+			else if(kort.equals(samling[i])) {
 				return true;
 			}
+
 		}
 		return false;
 	}

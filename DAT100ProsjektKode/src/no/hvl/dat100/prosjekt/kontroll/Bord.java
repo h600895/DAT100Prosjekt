@@ -134,10 +134,12 @@ public class Bord {
 		Kort overst;
 		if(bunkeFra.erTom()) {
 			overst = bunkeTil.taSiste();
-			bunkeFra.leggTil(overst);
+			
+			
 			while (bunkeTil.getAntalKort() != 0) {
 				bunkeFra.leggTil(bunkeTil.taSiste());
 			}
+			bunkeTil.leggTil(overst);
 		}
 	}
 		

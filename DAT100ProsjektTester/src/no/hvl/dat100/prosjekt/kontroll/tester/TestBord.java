@@ -123,8 +123,6 @@ class TestBord {
 		Kort k2 = bord.seOversteBunkeTil();
 		
 		assertEquals(k1,k2);
-		System.out.println(antallbunke);
-		System.out.println(bord.antallBunkeTil());
 		assertEquals(antallbunke, bord.antallBunkeTil());
 	}
 	
@@ -149,7 +147,7 @@ class TestBord {
 
 		bunkeTil = spill.getBord().getBunkeTil();
 		bunkeFra = spill.getBord().getBunkeFra();
-
+		System.out.println(bunkeTil.getAntalKort());
 		assertEquals(1, bunkeTil.getAntalKort());
 		assertEquals(overst, bunkeTil.seSiste());
 		assertEquals(bunkefraantall, bunkeFra.getAntalKort());

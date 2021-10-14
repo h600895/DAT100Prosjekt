@@ -138,9 +138,11 @@ public class Spill {
 	 */
 	public Handling nesteHandling(ISpiller spiller) {
 		
+		return spiller.nesteHandling(bord.seOversteBunkeTil());
+				
 		// TODO - START
 		
-		throw new UnsupportedOperationException(TODO.method());
+		//throw new UnsupportedOperationException(TODO.method());
 
 		// TODO - END
 		

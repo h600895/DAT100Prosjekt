@@ -85,6 +85,8 @@ public class Spill {
 		delutKort();
 		bord.leggNedBunkeTil(bord.taOversteFraBunke());
 		
+		System.out.println(syd.getHand());
+		
 		
 	}
 

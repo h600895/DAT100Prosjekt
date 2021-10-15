@@ -64,6 +64,7 @@ public class TestSydSpiller {
 		Handling handling = spiller.nesteHandling(new Kort (Kortfarge.Spar,7));
 		
 		assertEquals(HandlingsType.LEGGNED, handling.getType());
+		System.out.println(kort2 + " = " + handling.getKort());
 		assertEquals(kort2, handling.getKort());
 		assertEquals(0, spiller.getAntallTrekk());
 	}

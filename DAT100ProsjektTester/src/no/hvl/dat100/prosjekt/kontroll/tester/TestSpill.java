@@ -69,7 +69,7 @@ public class TestSpill {
 		int antallbunke = bunkefra.getAntalKort();
 		
 		spill.trekkFraBunke(spiller);
-		
+	
 		assertEquals(antallspiller+1, spiller.getAntallKort());
 		assertEquals(1, spiller.getAntallTrekk());
 		assertEquals(antallbunke-1, bunkefra.getAntalKort());

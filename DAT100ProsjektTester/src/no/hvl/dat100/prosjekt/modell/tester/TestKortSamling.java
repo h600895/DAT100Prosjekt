@@ -92,9 +92,20 @@ public class TestKortSamling {
 		
 		for (Kortfarge f : Kortfarge.values()) {
 			for (int i = 1; i <= Regler.MAKS_KORT_FARGE; i++) {
+				
+				for (Kort kort: samling.getAllekort()) {
+					if (kort == new Kort(f, i)) {
+						System.out.println(kort + " = " + new Kort(f, i));
+					}
+					else {
+						System.out.println(kort + " != " + new Kort(f, i));
+					}
+					
+				}
+				
 				assertTrue(samling.har(new Kort(f, i)));
-
 			}
+			
 		}
 	}
 		

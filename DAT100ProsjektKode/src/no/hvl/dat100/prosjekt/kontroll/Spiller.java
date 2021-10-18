@@ -89,7 +89,7 @@ public abstract class Spiller implements ISpiller {
 	}
 
 	public void leggTilKort(Kort kort) {
-		
+		System.out.println(kort);
 		hand.leggTil(kort);
 		
 	}
